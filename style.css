@@ -1,0 +1,328 @@
+/* --- RESET & VARIABLES --- */
+:root {
+    --primary-green: #2E8B57; /* SeaGreen */
+    --dark-green: #1E5b39;
+    --light-green: #E8F5E9;
+    --white: #ffffff;
+    --text-dark: #333333;
+    --bg-light: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- NAVIGATION --- */
+header {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav a:hover {
+    color: var(--light-green);
+    text-decoration: underline;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    /* Updated background specifically for readability */
+    background: linear-gradient(rgba(46, 139, 87, 0.9), rgba(46, 139, 87, 0.7)), url('https://source.unsplash.com/1600x900/?nature,community');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh; /* Changed from height to min-height for mobile safety */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.btn {
+    padding: 12px 30px;
+    background-color: var(--white);
+    color: var(--primary-green);
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid var(--white);
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--white);
+}
+
+/* --- SECTIONS GENERAL --- */
+section {
+    padding: 4rem 5%;
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary-green);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/* --- ABOUT US --- */
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px; /* Prevents text from getting too thin */
+}
+
+.about-img {
+    flex: 1;
+    min-width: 300px;
+    background-color: #ddd;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+}
+
+/* --- EVENTS & BLOG CARDS --- */
+.card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 300px; /* Base width */
+    flex-grow: 1; /* Allows card to grow slightly */
+    max-width: 350px; /* Stops it from getting too huge */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 15px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.date-badge {
+    background: var(--light-green);
+    color: var(--dark-green);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* --- CONTACT FORM --- */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: var(--dark-green);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--text-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* --- FORUM SPECIFIC STYLES --- */
+.forum-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.forum-header {
+    background-color: var(--dark-green);
+    color: white;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.topic {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: none;
+}
+
+.topic:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.reply-count {
+    background: #eee;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap; /* Keeps text on one line */
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES (THE MAGIC PART)
+   ========================================= */
+
+/* Tablets and Mobile (Max width 768px) */
+@media (max-width: 768px) {
+    
+    /* Navigation: Stack vertically */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Hero: Reduce text size */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 3rem 5%;
+    }
+
+    /* Cards: Make them full width on small screens */
+    .card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Small Mobile Phones (Max width 480px) */
+@media (max-width: 480px) {
+    
+    /* Navigation: Stack vertically completely */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Forum: Stack the topic and reply count */
+    .forum-header {
+        display: none; /* Hide header labels on tiny screens */
+    }
+
+    .topic {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .reply-count {
+        align-self: flex-start;
+        background-color: var(--light-green);
+    }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum | GreenHope</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles just for the forum page */
+        .forum-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        .forum-header {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .topic {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: none;
+        }
+        .topic:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+        .topic-title h3 {
+            font-size: 1.1rem;
+            color: var(--primary-green);
+        }
+        .topic-meta {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .reply-count {
+            background: #eee;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GreenHope Forum</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Back to Main Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="forum-container">
+        <h1>Community Discussion</h1>
+        <p>Welcome to our safe space for discussing environmental issues.</p>
+        <br>
+        
+        <button class="btn btn-submit" style="margin-bottom: 20px;">+ Start New Topic</button>
+
+        <div class="forum-list">
+            <div class="forum-header">
+                <span>Topic</span>
+                <span>Replies</span>
+            </div>
+
+            <div class="topic">
+                <div class="topic-title">
+                    <h3>How to organize a local clean-up?</h3>
+                    <div class="topic-meta">Posted by <strong>Sarah</strong> on Jan 21</div>
+                </div>
+                <div class="reply-count">12 Replies</div>
+            </div>
+
+            <div class="topic">
+                <div class="topic-title">
+                    <h3>Suggestions for next fundraiser</h3>
+                    <div class="topic-meta">Posted by <strong>Admin</strong> on Jan 20</div>
+                </div>
+                <div class="reply-count">8 Replies</div>
+            </div>
+
+            <div class="topic">
+                <div class="topic-title">
+                    <h3>Recycling electronics: Where to go?</h3>
+                    <div class="topic-meta">Posted by <strong>Mike</strong> on Jan 19</div>
+                </div>
+                <div class="reply-count">24 Replies</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 GreenHope Foundation.</p>
+    </footer>
+
+</body>
+</html>
