@@ -40,9 +40,7 @@ img {
     display: block;
 }
 
-/* =========================================
-   2. NAVIGATION (WITH CSS HAMBURGER)
-   ========================================= */
+/* --- NAVIGATION STYLES --- */
 header {
     background-color: var(--primary-green);
     color: var(--white);
@@ -54,26 +52,21 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    flex-wrap: wrap; /* Critical for mobile menu drop-down */
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--white);
-}
-
-/* HIDE THE CHECKBOX (It works silently in the background) */
-.menu-toggle {
-    display: none;
+    z-index: 1001; /* Ensure logo stays above menu */
 }
 
 /* HAMBURGER ICON (Hidden on Desktop) */
 .hamburger {
-    display: none;
-    cursor: pointer;
+    display: none; /* Hidden by default */
     flex-direction: column;
     gap: 5px;
+    cursor: pointer;
 }
 
 .hamburger span {
@@ -82,6 +75,17 @@ header {
     height: 3px;
     background-color: var(--white);
     border-radius: 2px;
+}
+
+/* CLOSE BUTTON (Hidden on Desktop) */
+.close-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: var(--white);
+    text-decoration: none;
 }
 
 /* DESKTOP NAV STYLES */
@@ -93,6 +97,54 @@ nav ul {
 nav a:hover {
     color: var(--light-green);
     text-decoration: underline;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (The :target Fix)
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* Show Hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* NAV BASE STYLE (Hidden by default) */
+    nav {
+        position: fixed; /* Fixed to cover screen */
+        top: 0;
+        right: -100%; /* Hide off-screen to the right */
+        width: 100%;  /* Full width */
+        height: 100vh; /* Full height */
+        background-color: var(--dark-green);
+        transition: right 0.3s ease; /* Smooth slide */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center items vertically */
+        align-items: center;
+        z-index: 999; /* Below header content but above page */
+    }
+
+    /* THE MAGIC: When nav is the TARGET (URL has #mobile-menu) */
+    nav:target {
+        right: 0; /* Slide into view */
+    }
+
+    /* Show Close Button on Mobile */
+    .close-btn {
+        display: block;
+    }
+
+    /* Mobile Link Styling */
+    nav ul {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    nav a {
+        font-size: 1.5rem; /* Larger text for mobile */
+    }
 }
 
 /* =========================================
