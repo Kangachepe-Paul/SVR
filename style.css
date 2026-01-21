@@ -1,10 +1,13 @@
-/* --- RESET & VARIABLES --- */
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
 :root {
     --primary-green: #2E8B57; /* SeaGreen */
     --dark-green: #1E5b39;
     --light-green: #E8F5E9;
     --white: #ffffff;
     --text-dark: #333333;
+    --text-light: #666666;
     --bg-light: #f4f4f4;
 }
 
@@ -37,7 +40,9 @@ img {
     display: block;
 }
 
-/* --- NAVIGATION --- */
+/* =========================================
+   2. NAVIGATION (WITH CSS HAMBURGER)
+   ========================================= */
 header {
     background-color: var(--primary-green);
     color: var(--white);
@@ -49,13 +54,37 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex-wrap: wrap; /* Critical for mobile menu drop-down */
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: var(--white);
 }
 
+/* HIDE THE CHECKBOX (It works silently in the background) */
+.menu-toggle {
+    display: none;
+}
+
+/* HAMBURGER ICON (Hidden on Desktop) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 2px;
+}
+
+/* DESKTOP NAV STYLES */
 nav ul {
     display: flex;
     gap: 20px;
@@ -66,13 +95,14 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* --- HERO SECTION --- */
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
 .hero {
-    /* Updated background specifically for readability */
     background: linear-gradient(rgba(46, 139, 87, 0.9), rgba(46, 139, 87, 0.7)), url('https://source.unsplash.com/1600x900/?nature,community');
     background-size: cover;
     background-position: center;
-    min-height: 80vh; /* Changed from height to min-height for mobile safety */
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,7 +134,9 @@ nav a:hover {
     color: var(--white);
 }
 
-/* --- SECTIONS GENERAL --- */
+/* =========================================
+   4. GENERAL SECTIONS
+   ========================================= */
 section {
     padding: 4rem 5%;
 }
@@ -121,12 +153,12 @@ h2 {
     display: flex;
     gap: 40px;
     align-items: center;
-    flex-wrap: wrap; /* Allows stacking on small screens */
+    flex-wrap: wrap;
 }
 
 .about-text {
     flex: 1;
-    min-width: 300px; /* Prevents text from getting too thin */
+    min-width: 300px;
 }
 
 .about-img {
@@ -141,7 +173,7 @@ h2 {
     color: #888;
 }
 
-/* --- EVENTS & BLOG CARDS --- */
+/* --- CARDS (EVENTS & BLOG) --- */
 .card-container {
     display: flex;
     gap: 20px;
@@ -153,9 +185,9 @@ h2 {
     background: var(--white);
     border: 1px solid #ddd;
     border-radius: 8px;
-    width: 300px; /* Base width */
-    flex-grow: 1; /* Allows card to grow slightly */
-    max-width: 350px; /* Stops it from getting too huge */
+    width: 300px;
+    flex-grow: 1;
+    max-width: 350px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s;
 }
@@ -227,7 +259,9 @@ footer {
     margin-top: 2rem;
 }
 
-/* --- FORUM SPECIFIC STYLES --- */
+/* =========================================
+   5. FORUM SPECIFIC STYLES
+   ========================================= */
 .forum-container {
     max-width: 900px;
     margin: 2rem auto;
@@ -262,59 +296,74 @@ footer {
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 0.8rem;
-    white-space: nowrap; /* Keeps text on one line */
+    white-space: nowrap;
 }
 
 /* =========================================
-   RESPONSIVE MEDIA QUERIES (THE MAGIC PART)
+   6. RESPONSIVE MEDIA QUERIES (MOBILE)
    ========================================= */
 
-/* Tablets and Mobile (Max width 768px) */
 @media (max-width: 768px) {
     
-    /* Navigation: Stack vertically */
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 1rem;
+    /* Show Hamburger */
+    .hamburger {
+        display: flex;
     }
 
+    /* Hide Menu by Default */
+    nav {
+        width: 100%;
+        display: none; /* Hidden */
+        background-color: var(--dark-green);
+        margin-top: 15px;
+        padding-bottom: 15px;
+        order: 3; /* Ensures it drops below logo and hamburger */
+    }
+
+    /* Stack Links Vertically */
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
     }
 
-    /* Hero: Reduce text size */
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 15px;
+    }
+
+    nav ul li a:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+
+    /* THE CHECKBOX HACK LOGIC */
+    /* When input is checked, display the nav */
+    .menu-toggle:checked ~ nav {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    /* Hero Text Size */
     .hero h1 {
         font-size: 2rem;
     }
 
+    /* General Padding */
     section {
         padding: 3rem 5%;
     }
 
-    /* Cards: Make them full width on small screens */
-    .card {
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
-/* Small Mobile Phones (Max width 480px) */
-@media (max-width: 480px) {
-    
-    /* Navigation: Stack vertically completely */
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Forum: Stack the topic and reply count */
+    /* Forum Mobile Adjustments */
     .forum-header {
-        display: none; /* Hide header labels on tiny screens */
+        display: none;
     }
-
+    
     .topic {
         flex-direction: column;
         align-items: flex-start;
@@ -324,5 +373,17 @@ footer {
     .reply-count {
         align-self: flex-start;
         background-color: var(--light-green);
+    }
+}
+
+/* Animation for Menu Slide */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
