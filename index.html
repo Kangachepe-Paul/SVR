@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenHope Foundation | Non-Profit Organization</title>
+    <title>Small Voice of Reminder</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">GreenHope</div>
+        <a href="#home" class="logo">SVR</a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -108,9 +117,24 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 GreenHope Foundation. All rights reserved.</p>
+        <p>&copy; 2026 Small Voice of Reminder. All rights reserved.</p>
         <p>Follow us on social media</p>
     </footer>
 
+    <script>
+    // Select all links inside the menu
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            // Uncheck the box when a link is clicked
+            document.getElementById('menu-toggle').checked = false;
+        });
+    });
+</script>
 </body>
+</body>
+</html>
+    </footer>
+
+</body>
+
 </html>
